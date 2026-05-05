@@ -22,4 +22,10 @@ if status is-interactive
     # Override ghostscript (gs)
     functions -e gs 2>/dev/null
     alias gs="git status"
+
+    # ==========================================
+    # ZOXIDE (smart cd)
+    # ==========================================
+
+    zoxide init fish | source
 end
