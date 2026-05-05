@@ -1,0 +1,74 @@
+# ==========================================
+#      KITTY 2025 EDITION - TOKYO NIGHT STORM
+#        Futuristic Neon Terminal Setup
+# ==========================================
+
+# ---- FONT SETTINGS ----
+font_family      JetBrainsMonoNL Nerd Font
+font_size        13.5
+
+# ---- LOOK & FEEL ----
+window_padding_width 12
+cursor_shape         beam
+cursor_blink_interval 0
+
+background_opacity   0.90
+enable_audio_bell    no
+confirm_os_window_close 0
+
+# ---- TOKYO NIGHT STORM COLORS ----
+# foreground            #c0caf5
+# background            #1a1b26
+# color0   #15161e
+# color1   #f7768e
+# color2   #9ece6a
+# color3   #e0af68
+# color4   #7aa2f7
+# color5   #bb9af7
+# color6   #7dcfff
+# color7   #a9b1d6
+# color8   #414868
+# color9   #f7768e
+# color10  #9ece6a
+# color11  #e0af68
+# color12  #7aa2f7
+# color13  #bb9af7
+# color14  #7dcfff
+# color15  #c0caf5
+
+# Selection
+# selection_background #33467c
+# selection_foreground #c0caf5
+
+# Cursor
+# cursor #c0caf5
+
+# ---- TABS ----
+tab_bar_style powerline
+tab_powerline_style slanted
+tab_title_template "{index}: {title}"
+# active_tab_foreground   #1a1b26
+# active_tab_background   #7dcfff
+# inactive_tab_foreground #a9b1d6
+# inactive_tab_background #1f2335
+
+# ---- SCROLLBACK ----
+scrollback_lines 8000
+
+# ---- CLIPBOARD SHORTCUTS ----
+map ctrl+shift+c copy_to_clipboard
+map ctrl+shift+v paste_from_clipboard
+
+# ---- URL ----
+open_url_with default
+
+# ---- PERFORMANCE ----
+linux_display_server x11
+input_delay 1
+repaint_delay 7
+
+
+# BEGIN_KITTY_THEME
+# Nightfox
+include current-theme.conf
+# END_KITTY_THEME
