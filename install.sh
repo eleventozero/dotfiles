@@ -24,6 +24,19 @@ echo "Installing dotfiles..."
 
 cd "$HOME/dotfiles"
 
+backup_if_exists() {
+  local path="$1"
+
+  if [ -e "$path" ] && [ ! -L "$path" ]; then
+    mv "$path" "${path}_backup_$(date +%Y%m%d_%H%M%S)"
+  fi
+}
+
+backup_if_exists "$HOME/.config/fish"
+backup_if_exists "$HOME/.config/kitty"
+backup_if_exists "$HOME/.config/ranger"
+backup_if_exists "$HOME/.config/nvim"
+
 stow fish
 stow kitty
 stow ranger
