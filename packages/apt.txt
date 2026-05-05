@@ -1,0 +1,13 @@
+git
+curl
+fish
+kitty
+neovim
+ranger
+stow
+fzf
+ripgrep
+fd-find
+bat
+eza
+zoxide
