@@ -10,6 +10,7 @@ Personal Linux setup managed with GNU Stow.
 - kitty
 - neovim (LazyVim)
 - ranger
+- zoxide
 
 ---
 
@@ -46,4 +47,5 @@ Each tool is managed with GNU Stow:
 
 - Uses symlinks via stow  
 - Safe to run multiple times  
-- Existing configs are automatically backed up  
+- Existing configs are automatically backed up
+- Fast navigation powered by zoxide
