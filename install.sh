@@ -1,14 +1,28 @@
 #!/usr/bin/env bash
+
 set -e
+
+echo "Installing packages..."
+
+sudo apt update
+xargs -a packages/apt.txt sudo apt install -y
+
+echo "Installing fonts..."
+
+FONT_DIR="$HOME/.local/share/fonts"
+mkdir -p "$FONT_DIR"
+
+if [ ! -d "$FONT_DIR/JetBrainsMono" ]; then
+  cd "$FONT_DIR"
+  wget -q https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip
+  unzip -q JetBrainsMono.zip -d JetBrainsMono
+  rm JetBrainsMono.zip
+  fc-cache -fv
+fi
 
 echo "Installing dotfiles..."
 
-# Install stow if not installed
-if ! command -v stow &>/dev/null; then
-  echo "Installing stow..."
-  sudo apt update
-  sudo apt install -y stow
-fi
+cd "$HOME/dotfiles"
 
 stow fish
 stow kitty
