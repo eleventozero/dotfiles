@@ -43,3 +43,4 @@ node_modules/
 # ========================
 __pycache__/
 *.pyc
+kitty/.config/kitty/kitty-themes/
