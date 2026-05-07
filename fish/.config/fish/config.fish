@@ -28,4 +28,15 @@ if status is-interactive
     # ==========================================
 
     zoxide init fish | source
+
+    function kitty-monalisa
+        ln -sf ~/dotfiles/kitty/.config/kitty/themes/MonaLisa.conf ~/dotfiles/kitty/.config/kitty/current-theme.conf
+        echo "Switched to MonaLisa"
+    end
+
+    function kitty-novel
+        ln -sf ~/dotfiles/kitty/.config/kitty/themes/Novel.conf ~/dotfiles/kitty/.config/kitty/current-theme.conf
+        echo "Switched to Novel"
+    end
+
 end
