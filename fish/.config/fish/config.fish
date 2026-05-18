@@ -2,6 +2,19 @@
 # Fish Shell Configuration
 # =========================================================
 
+# =========================================================
+# ENVIRONMENT VARIABLES
+# =========================================================
+
+# Default terminal editor.
+set -gx EDITOR nvim
+
+# Preferred visual editor.
+set -gx VISUAL nvim
+
+# Default pager for long text output.
+set -gx PAGER less
+
 # Only run this configuration in interactive shells.
 # Prevents unnecessary execution in scripts or subprocesses.
 if status is-interactive

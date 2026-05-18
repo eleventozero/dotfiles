@@ -9,6 +9,9 @@ Thumbs.db
 # ========================
 **/.cache/**
 
+# Keep lazy-lock.json tracked for reproducible plugin versions.
+# Do NOT ignore lazy-lock.json unless you intentionally want floating plugin versions.
+
 # ========================
 # Logs / Temp
 # ========================
@@ -17,6 +20,7 @@ Thumbs.db
 *.swp
 *.swo
 *~
+*.bak
 
 # ========================
 # Secrets
@@ -54,3 +58,11 @@ kitty/.config/kitty/kitty-themes/
 # Fish
 # ========================
 fish/fish_variables
+fish/.config/fish/fish_variables
+
+# ========================
+# Ranger
+# ========================
+ranger/.config/ranger/bookmarks
+ranger/.config/ranger/history
+ranger/.config/ranger/tagged

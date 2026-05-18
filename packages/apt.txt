@@ -4,6 +4,7 @@ curl
 wget
 unzip
 stow
+less
 
 # Shell
 fish
@@ -24,6 +25,14 @@ neovim
 
 # File Manager
 ranger
+
+# Preview / Metadata
+jq
+poppler-utils
+mediainfo
+
+# Clipboard
+wl-clipboard
 
 # Build tools
 build-essential
