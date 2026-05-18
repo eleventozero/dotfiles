@@ -1,13 +1,29 @@
+# Core
 git
 curl
-fish
-kitty
-neovim
-ranger
+wget
+unzip
 stow
+
+# Shell
+fish
+zoxide
 fzf
+
+# Terminal
+kitty
+eza
+bat
+
+# Search
 ripgrep
 fd-find
-bat
-eza
-zoxide
+
+# Editor
+neovim
+
+# File Manager
+ranger
+
+# Build tools
+build-essential

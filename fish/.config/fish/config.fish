@@ -1,42 +1,67 @@
+# =========================================================
+# Fish Shell Configuration
+# =========================================================
+
+# Only run this configuration in interactive shells.
+# Prevents unnecessary execution in scripts or subprocesses.
 if status is-interactive
+
+    # =====================================================
     # BASIC SETTINGS
+    # =====================================================
+
+    # Disable the default Fish greeting message.
     set -g fish_greeting ""
 
-    # ==========================================
-    # ALIASES
-    # ==========================================
+    # Central dotfiles path.
+    # Makes the configuration easier to maintain.
+    set -gx DOTFILES "$HOME/dotfiles"
 
-    # -------- Navigation --------
+    # =====================================================
+    # MODERN CLI TOOLS
+    # =====================================================
+
+    # Use eza instead of ls.
+    alias ls="eza"
+
+    # Detailed file listing.
+    alias ll="eza -lh"
+
+    # Show hidden files.
+    alias la="eza -a"
+
+    # Tree view.
+    alias tree="eza --tree"
+
+    # Use bat instead of cat.
+    alias cat="bat"
+
+    # =====================================================
+    # NAVIGATION
+    # =====================================================
+
     alias ..="cd .."
     alias ...="cd ../.."
 
-    # -------- Listing --------
-    alias ll="ls -lh"
-    alias la="ls -a"
+    # =====================================================
+    # GIT SHORTCUTS
+    # =====================================================
 
-    # -------- Git --------
     alias ga="git add"
     alias gc="git commit"
     alias gp="git push"
 
-    # Override ghostscript (gs)
+    # Remove Ghostscript alias conflict.
     functions -e gs 2>/dev/null
+
+    # Replace with git status.
     alias gs="git status"
 
-    # ==========================================
-    # ZOXIDE (smart cd)
-    # ==========================================
+    # =====================================================
+    # ZOXIDE
+    # =====================================================
 
+    # Smart directory jumping.
     zoxide init fish | source
-
-    function kitty-monalisa
-        ln -sf ~/dotfiles/kitty/.config/kitty/themes/MonaLisa.conf ~/dotfiles/kitty/.config/kitty/current-theme.conf
-        echo "Switched to MonaLisa"
-    end
-
-    function kitty-novel
-        ln -sf ~/dotfiles/kitty/.config/kitty/themes/Novel.conf ~/dotfiles/kitty/.config/kitty/current-theme.conf
-        echo "Switched to Novel"
-    end
 
 end

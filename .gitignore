@@ -8,7 +8,6 @@ Thumbs.db
 # Neovim / LazyVim
 # ========================
 **/.cache/**
-**/lazy-lock.json
 
 # ========================
 # Logs / Temp
@@ -17,6 +16,7 @@ Thumbs.db
 *.tmp
 *.swp
 *.swo
+*~
 
 # ========================
 # Secrets
@@ -30,8 +30,9 @@ Thumbs.db
 
 # SSH / GPG
 id_rsa
+id_rsa.pub
 id_ed25519
-*.pub
+id_ed25519.pub
 
 # ========================
 # Node
@@ -43,4 +44,13 @@ node_modules/
 # ========================
 __pycache__/
 *.pyc
+
+# ========================
+# Kitty
+# ========================
 kitty/.config/kitty/kitty-themes/
+
+# ========================
+# Fish
+# ========================
+fish/fish_variables
