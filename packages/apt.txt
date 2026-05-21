@@ -12,7 +12,7 @@ zoxide
 fzf
 
 # Terminal
-kitty
+# kitty
 eza
 bat
 

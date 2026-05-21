@@ -46,6 +46,35 @@ require_command() {
   }
 }
 
+# Install Kitty from the official installer instead of apt.
+# Ubuntu apt often ships older Kitty versions that miss newer features
+# such as cursor_trail.
+install_kitty() {
+  log_info "Checking Kitty installation..."
+
+  # Make sure ~/.local/bin exists before linking binaries into it.
+  mkdir -p "$HOME/.local/bin"
+
+  if [ -x "$HOME/.local/kitty.app/bin/kitty" ]; then
+    log_info "Official Kitty installation found."
+  else
+    log_info "Installing latest Kitty using the official installer..."
+    curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+  fi
+
+  # Ensure the official Kitty binaries are available through ~/.local/bin.
+  if [ -x "$HOME/.local/kitty.app/bin/kitty" ]; then
+    ln -sf "$HOME/.local/kitty.app/bin/kitty" "$HOME/.local/bin/kitty"
+    ln -sf "$HOME/.local/kitty.app/bin/kitten" "$HOME/.local/bin/kitten"
+
+    log_ok "Kitty linked to ~/.local/bin."
+    "$HOME/.local/bin/kitty" --version
+  else
+    log_error "Kitty installation failed."
+    exit 1
+  fi
+}
+
 # --------------------------------------------------
 # Install packages
 # --------------------------------------------------
@@ -56,18 +85,38 @@ sudo apt update
 
 log_info "Installing packages from packages/apt.txt..."
 
-# Install all packages listed in apt.txt.
-xargs -a packages/apt.txt sudo apt install -y
+# Install all packages listed in apt.txt except kitty.
+# Kitty is installed separately from the official installer because
+# apt versions can be too old for modern Kitty config options.
+APT_PACKAGES_FILE="packages/apt.txt"
+APT_PACKAGES_FILTERED="$(mktemp)"
+
+sed '/^[[:space:]]*kitty[[:space:]]*$/d' "$APT_PACKAGES_FILE" > "$APT_PACKAGES_FILTERED"
+
+if [ -s "$APT_PACKAGES_FILTERED" ]; then
+  xargs -a "$APT_PACKAGES_FILTERED" sudo apt install -y
+else
+  log_info "No apt packages to install after filtering."
+fi
+
+rm -f "$APT_PACKAGES_FILTERED"
 
 # --------------------------------------------------
 # Verify required commands
 # --------------------------------------------------
 
 # These tools are critical for the setup process.
+require_command curl
 require_command stow
 require_command wget
 require_command unzip
 require_command fc-cache
+
+# --------------------------------------------------
+# Install Kitty
+# --------------------------------------------------
+
+install_kitty
 
 # --------------------------------------------------
 # Install Nerd Font
