@@ -1,10 +1,10 @@
-# ⚙️ Dotfiles
+# Dotfiles
 
 Personal Linux setup managed with GNU Stow.
 
 ---
 
-## 🧰 Tools
+## Tools
 
 - fish
 - kitty
@@ -32,7 +32,7 @@ cd dotfiles
 
 ---
 
-## 🏗️ Structure
+## Structure
 
 Each tool is managed with GNU Stow:
 
@@ -43,7 +43,7 @@ Each tool is managed with GNU Stow:
 
 ---
 
-## 🧠 Notes
+## Notes
 
 - Uses symlinks via stow  
 - Safe to run multiple times  
